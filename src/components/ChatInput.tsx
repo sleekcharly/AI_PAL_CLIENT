@@ -26,6 +26,7 @@ const ChatInput = ({ sendMessage, loading }: Props) => {
             rows={1}
             className="border-0 bg-transparent outline-none w-11/12"
             value={value}
+            placeholder="Ask me anything"
             onChange={(e) => setValue(e.target.value)}
             onKeyDown={(e) => {
               e.keyCode === 13 && e.shiftKey === false && handleSubmit();
