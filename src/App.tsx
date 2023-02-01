@@ -6,7 +6,7 @@ import { fetchResponse } from './api';
 
 function App() {
   // setup chat state
-  const [chat, setChat] = useState([]);
+  const [chat, setChat]: any = useState([]);
 
   //   mutation function
   const mutation = useMutation({
@@ -14,7 +14,7 @@ function App() {
       return fetchResponse(chat);
     },
     onSuccess: (data) =>
-      setChat((prev) => [
+      setChat((prev: any) => [
         ...prev,
         { sender: 'ai', message: data.message.replace(/^\n\n/, '') },
       ]),
@@ -22,7 +22,7 @@ function App() {
 
   //   setup sendMessage function
   const sendMessage = async (message: {}) => {
-    await Promise.resolve(setChat((prev) => [...prev, message]));
+    await Promise.resolve(setChat((prev: any) => [...prev, message]));
     mutation.mutate();
   };
   return (
